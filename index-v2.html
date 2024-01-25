@@ -1,0 +1,44 @@
+<script src="https://unpkg.com/vue@2"></script>
+
+<div id="desafio">
+    <!-- 1) Exiba um alert quando o botão for clicado -->
+    <div>
+        <button v-on:click="alertaBotao">Exibir Alerta</button>
+    </div>
+    
+    <!-- 2) Escute o evento "keydown" e armazene o valor na propriedade
+        data (dica: event.target.value) -->
+    <div>
+        <input type="text" v-on:keyup="salvarValor">
+        <p>{{ valor }}</p>
+    </div>
+    <!-- <div>
+        <input type="text" v-on:keydown.enter="valor = $event.target.value"> É possível usar o $event.target.value em vez de uma função para salvar o valor dentro da variável valor.
+        <p>{{ valor }}</p>
+    </div> -->
+    
+    <!-- 3) Ajuste o exemplo 2 para disparar o evento "keydown" somente
+        quando a tecla for ENTER -->
+    <div>
+        <input type="text" v-on:keydown.enter="salvarValor">
+        <p>{{ valor }}</p>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#desafio',
+        data: {
+            valor: 0,
+        },
+        methods: {
+            alertaBotao(event){
+                alert('Sucesso')
+            },
+            salvarValor(event){
+                this.valor = event.target.value
+            },  
+
+        }
+    })
+</script>
+<script src="app.js"></script>
